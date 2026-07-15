@@ -46,6 +46,7 @@
         if (value > 0) {
           if (cartQuantity + value > highestQuantity) {
             alert(`The Cart is Full.`);
+            return;
           } else {
             cartQuantity += value;
             console.log(`Cart Quantity: ${cartQuantity}`);
@@ -53,6 +54,7 @@
         } else if (value < 0) {
           if (cartQuantity + value < lowestQuantity) {
             alert(`Not Enough Items in The Cart.`);
+            return;
           } else {
             cartQuantity += value;
             console.log(`Cart Quantity: ${cartQuantity}`);
