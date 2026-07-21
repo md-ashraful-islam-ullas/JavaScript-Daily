@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class="js-button">9b</button>
+
+    <hr>
+
+    <button onclick="chooseHeadOrTail('Head')">Head</button>
+    <button onclick="chooseHeadOrTail('Tail')">Tail</button>
+
+    <p class="js-head-tail-result"></p>
+
+    <hr>
+
+    <input type="text" placeholder="Your name" class="js-input" onkeydown="handleOnKeyDown(event)">
+    <button onclick="submitName();">Submit</button>
+    <p class="js-name-show"></p>
+
+    <script>
+        function handleOnKeyDown(event) {
+            if(event.key === 'Enter') {
+                submitName();
+            }
+        }
+
+        function submitName() {
+            const inputElement = document.querySelector('.js-input');
+            document.querySelector('.js-name-show').innerHTML = `Your name is: ${inputElement.value}`;
+        }
+
+
+        console.log(document.querySelector('button'));
+        document.querySelector('.js-button').innerHTML = '9b Done!';
+
+        function chooseHeadOrTail(move) {
+            if (move === 'Head') {
+                document.querySelector('.js-head-tail-result').innerHTML = `You Choose: Head`;
+            } else {
+                document.querySelector('.js-head-tail-result').innerHTML = `You Choose: Tail`;
+            }
+        }
+    </script>
+</body>
+</html>
