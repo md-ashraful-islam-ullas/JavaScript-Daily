@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="js-input-text" onkeyup="liveType()">
+    <p class="js-output"></p>
+
+    <script>
+        function liveType() {
+            const inputElement = document.querySelector('.js-input-text').value;
+
+            document.querySelector('.js-output').innerHTML = inputElement;
+        }
+    </script>
+</body>
+</html>
