@@ -7,13 +7,19 @@ function handleCostKeyDown(event) {
 function calculateTotal() {
   const inputElement = document.querySelector(".js-cost-input");
 
-  let cost = inputElement.value * 100;
+  if (inputElement.value <= 0) {
+    document.querySelector(".js-total-cost").innerHTML =
+      `Error: Cost can't be less than $0`;
+    document.querySelector(".js-total-cost").classList.add("error-text");
+  } else {
+    document.querySelector(".js-total-cost").classList.remove("error-text");
+    let cost = inputElement.value * 100;
 
-  if (cost < 4000) {
-    cost = cost + 1000;
+    if (cost < 4000) {
+      cost = cost + 1000;
+    }
+    document.querySelector(".js-total-cost").innerHTML = `$${cost / 100}`;
   }
-
-  document.querySelector(".js-total-cost").innerHTML = `$${cost / 100}`;
 }
 
 function subscribe() {

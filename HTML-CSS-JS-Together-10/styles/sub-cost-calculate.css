@@ -35,3 +35,7 @@ body {
 .rps-title {
     margin-top: 70px;
 }
+
+.error-text {
+    color: red;
+}
