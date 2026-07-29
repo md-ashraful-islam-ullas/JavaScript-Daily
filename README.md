@@ -8,4 +8,4 @@ The latest versions of the projects are listed below.
 | Calculator | V5 (Final) | `HTML-CSS-JS-Together-10/` |
 | Rock Paper Scissors | V5 (Final) | `HTML-CSS-JS-Together-10/` |
 | Coin Flip | V2 | `Objects-08/` |
-| Todo List | V1 | `Arrays-&-Loops-11/` |
+| Todo List | V2 | `Arrays-&-Loops-11/exercises/11x` |
