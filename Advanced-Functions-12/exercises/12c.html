@@ -6,13 +6,17 @@
     <title>Document</title>
   </head>
   <body>
-    <button class="js-button" onclick="changeText()">Finish</button>
+    <button class="js-button">Finish</button>
     <script>
       function changeText() {
-        setTimeout(function () {
+        setTimeout(() => {
           document.querySelector(".js-button").innerHTML = "Finished!";
         }, 3000);
       }
+
+      document.querySelector('.js-button').addEventListener('click', () => {
+        changeText();
+      })
     </script>
   </body>
 </html>
