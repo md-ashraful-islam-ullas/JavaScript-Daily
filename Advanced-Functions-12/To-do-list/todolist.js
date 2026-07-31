@@ -8,7 +8,7 @@ renderTodoList();
 function renderTodoList() {
   let todolistHTML = "";
 
-  listArray.forEach(function (todoObj, index) {
+  listArray.forEach((todoObj, index) => {
     const name = todoObj.name;
     const dueDate = todoObj.dueDate;
 
@@ -17,12 +17,21 @@ function renderTodoList() {
     const html = `
     <div>${name}</div>
     <div>${dueDate}</div>
-    <button class="delete-button" onclick="listArray.splice(${index},1); renderTodoList();">Delete</button>
+    <button class="delete-button js-delete-button">Delete</button>
     `;
     todolistHTML += html;
   });
 
   document.querySelector(".js-topics-div").innerHTML = todolistHTML;
+
+  document
+    .querySelectorAll(".js-delete-button")
+    .forEach((deleteButton, index) => {
+      deleteButton.addEventListener("click", () => {
+        listArray.splice(index, 1);
+        renderTodoList();
+      });
+    });
 }
 
 function addTodo() {
@@ -35,3 +44,7 @@ function addTodo() {
   dateInputElement.value = "";
   renderTodoList();
 }
+
+document.querySelector(".js-add-button").addEventListener("click", () => {
+  addTodo();
+});

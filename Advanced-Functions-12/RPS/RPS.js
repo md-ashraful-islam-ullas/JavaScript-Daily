@@ -11,7 +11,7 @@ let intervalId;
 
 function autoplay() {
   if (!isAutoPlaying) {
-    intervalId = setInterval(function () {
+    intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 3000);
@@ -21,6 +21,28 @@ function autoplay() {
     isAutoPlaying = false;
   }
 }
+
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  playGame("Rock");
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  playGame("Paper");
+});
+
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  playGame("Scissors");
+});
+
+document.querySelector(".js-autoplay-button").addEventListener("click", () => {
+  autoplay();
+});
+
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") playGame("Rock");
+  else if (event.key === "p") playGame("Paper");
+  else if (event.key === "s") playGame("Scissors");
+});
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -74,6 +96,15 @@ function playGame(playerMove) {
   //   `You picked ${playerMove}. Computer picked ${computerMove}. ${result}. \nWins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.ties}`,
   // );
 }
+
+document.querySelector(".js-reset-button").addEventListener("click", () => {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem("score");
+  // localStorage.setItem('score' ,score);
+  updateScoreElement();
+});
 
 function updateScoreElement() {
   document.querySelector(".js-score").innerHTML =
